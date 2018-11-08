@@ -7,6 +7,5 @@ public class ByteStream {
     Byte[] data = new Byte[] {65, 66, 67};
     Byte first = Stream.of(data).findFirst().get();
     System.out.println(first);
-
   }
 }
