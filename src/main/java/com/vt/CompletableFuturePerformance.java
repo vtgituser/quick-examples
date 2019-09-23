@@ -17,30 +17,37 @@ public class CompletableFuturePerformance {
     CompletableFuturePerformance f = new CompletableFuturePerformance();
     BlockingQueue<Runnable> queue;
     queue = new ArrayBlockingQueue<>(1000);
-    ThreadPoolExecutor pool = new
-        ThreadPoolExecutor(
-        10, 10, 0L, TimeUnit.MILLISECONDS, queue, (r, executor) -> {
-      try {
-        if (executor != null && !executor.isShutdown()) {
-          executor.getQueue().put(r);
-        }
-      } catch (InterruptedException e) {
-        System.out.println("Thread Interrupted " + e.getMessage());
-      }
-    });
+    ThreadPoolExecutor pool =
+        new ThreadPoolExecutor(
+            10,
+            10,
+            0L,
+            TimeUnit.MILLISECONDS,
+            queue,
+            (r, executor) -> {
+              try {
+                if (executor != null && !executor.isShutdown()) {
+                  executor.getQueue().put(r);
+                }
+              } catch (InterruptedException e) {
+                System.out.println("Thread Interrupted " + e.getMessage());
+              }
+            });
 
     long start = System.currentTimeMillis();
     List<CompletableFuture> futures = new ArrayList<>();
     for (int i = 0; i < 1000; i++) {
       final int j = i;
-/*      futures
-          .add(CompletableFuture.supplyAsync(() -> f.task1(j)).thenAccept(f::task2));*/
-//      CompletableFuture.supplyAsync(() -> f.task1(j), pool).thenAccept(f::task2).get();
-      futures
-          .add(CompletableFuture.runAsync(() -> f.task1(j), pool).handle((m,t) -> {
-            t.printStackTrace();
-            return m;
-          }));
+      /*      futures
+      .add(CompletableFuture.supplyAsync(() -> f.task1(j)).thenAccept(f::task2));*/
+      //      CompletableFuture.supplyAsync(() -> f.task1(j), pool).thenAccept(f::task2).get();
+      futures.add(
+          CompletableFuture.runAsync(() -> f.task1(j), pool)
+              .handle(
+                  (m, t) -> {
+                    t.printStackTrace();
+                    return m;
+                  }));
     }
     System.out.println("queue capacity:" + queue.remainingCapacity());
     CompletableFuture.allOf(futures.toArray(new CompletableFuture[1000])).get();
@@ -48,11 +55,11 @@ public class CompletableFuturePerformance {
   }
 
   public int task1(int i) {
-  /*  if (i % 3 == 0) {
+    /*  if (i % 3 == 0) {
       throw new RuntimeException();
     }*/
     try {
-//      System.out.println("task1 " + i);
+      //      System.out.println("task1 " + i);
       sleep(1000);
     } catch (Exception e) {
       e.printStackTrace();
@@ -67,5 +74,4 @@ public class CompletableFuturePerformance {
       e.printStackTrace();
     }
   }
-
 }

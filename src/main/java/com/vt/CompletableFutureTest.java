@@ -1,11 +1,6 @@
 package com.vt;
 
 import static java.lang.System.currentTimeMillis;
-import static java.util.concurrent.CompletableFuture.runAsync;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 public class CompletableFutureTest {
   public static void main(String[] args) throws Exception {
@@ -17,7 +12,7 @@ public class CompletableFutureTest {
     longWork.method4();
     longWork.method5();
     longWork.method6();
-/*    List<CompletableFuture> futures = new ArrayList<>();
+    /*    List<CompletableFuture> futures = new ArrayList<>();
     futures.add(runAsync(longWork::method1));
     futures.add(runAsync(longWork::method2));
     futures.add(runAsync(longWork::method3));

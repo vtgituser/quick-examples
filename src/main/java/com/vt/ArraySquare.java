@@ -10,8 +10,7 @@ public class ArraySquare {
 
     if (isSquare) {
       System.out.println("It is a square");
-      System.out.println("diagonal length: " + Math.sqrt(2)*length);
-    }else
-      System.out.println("It is Not a square");
+      System.out.println("diagonal length: " + Math.sqrt(2) * length);
+    } else System.out.println("It is Not a square");
   }
 }

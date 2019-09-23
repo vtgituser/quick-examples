@@ -22,7 +22,7 @@ public class Emp {
     this.active = true;
   }
 
-  public String getName(){
+  public String getName() {
     return first + " " + last;
   }
 

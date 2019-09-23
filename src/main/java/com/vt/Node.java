@@ -1,5 +1,3 @@
 package com.vt;
 
-public interface Node {
-
-}
+public interface Node {}

@@ -9,7 +9,7 @@ import java.util.Map;
 public class ObjectType {
 
   public static void main(String[] args) {
-    int[] array = new int[]{1,2};
+    int[] array = new int[] {1, 2};
     System.out.println(array.getClass().isArray());
     List<String> list = new ArrayList<>();
     System.out.println(Collection.class.isAssignableFrom(list.getClass()));
@@ -17,6 +17,5 @@ public class ObjectType {
     System.out.println(map.getClass());
     String string = "";
     System.out.println(string.getClass());
-
   }
 }
