@@ -26,7 +26,7 @@ public class BeanIntrospection {
               .getPropertyDescriptors()
       )
           // filter out properties with setters only
-          .filter(pd -> nonNull(pd.getReadMethod()))
+          .filter(propertyDescriptor -> nonNull(propertyDescriptor.getReadMethod()))
           .collect(toMap(
               // bean property name
               PropertyDescriptor::getName,
