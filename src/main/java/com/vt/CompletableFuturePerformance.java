@@ -19,7 +19,7 @@ public class CompletableFuturePerformance {
     queue = new ArrayBlockingQueue<>(1000);
     ThreadPoolExecutor pool = new
         ThreadPoolExecutor(
-        100, 100, 0L, TimeUnit.MILLISECONDS, queue, (r, executor) -> {
+        10, 10, 0L, TimeUnit.MILLISECONDS, queue, (r, executor) -> {
       try {
         if (executor != null && !executor.isShutdown()) {
           executor.getQueue().put(r);
@@ -48,9 +48,9 @@ public class CompletableFuturePerformance {
   }
 
   public int task1(int i) {
-    if (i % 3 == 0) {
+  /*  if (i % 3 == 0) {
       throw new RuntimeException();
-    }
+    }*/
     try {
 //      System.out.println("task1 " + i);
       sleep(1000);
