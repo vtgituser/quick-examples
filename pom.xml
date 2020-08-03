@@ -16,13 +16,13 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
-    <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
+    <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
     <jackson.version>2.9.5</jackson.version>
     <mockito2.version>2.8.9</mockito2.version>
     <powermock.version>1.7.4</powermock.version>
     <jacoco.maven.plugin>0.8.0</jacoco.maven.plugin>
     <maven.surefire.plugin>2.20</maven.surefire.plugin>
-      <kotlin.version>1.0.0</kotlin.version>
+    <kotlin.version>1.3.41</kotlin.version>
   </properties>
 
   <dependencies>
@@ -30,6 +30,16 @@
       <groupId>de.sven-jacobs</groupId>
       <artifactId>loremipsum</artifactId>
       <version>1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.collections</groupId>
+      <artifactId>eclipse-collections-api</artifactId>
+      <version>10.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.collections</groupId>
+      <artifactId>eclipse-collections</artifactId>
+      <version>10.2.0</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -73,6 +83,11 @@
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>3.7</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>

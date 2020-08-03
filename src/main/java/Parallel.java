@@ -1,4 +1,3 @@
-
 public class Parallel {
   private static int anInt;
 

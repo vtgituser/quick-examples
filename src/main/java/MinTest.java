@@ -18,6 +18,7 @@ public class MinTest {
           new Emp(12, "1", "L")
         };
 
+    System.out.println(Arrays.stream(emps).skip(1).findFirst().get());
     System.out.println(Arrays.stream(emps).findFirst().get());
     System.out.println(emps[0]);
     System.out.println("Done.");
