@@ -16,16 +16,14 @@ public class BeanIntrospection {
 
     try {
       // invoke method to get value
-      Map<String, String> beanMethods = stream(
-          getBeanInfo(Emp.class, Object.class)
-              .getPropertyDescriptors()
-      )
-          // filter out properties with setters only
-          .filter(propertyDescriptor -> nonNull(propertyDescriptor.getReadMethod()))
-          .collect(toMap(
-              // bean property name
-              PropertyDescriptor::getName,
-              pd -> pd.getReadMethod().getName()));
+      Map<String, String> beanMethods =
+          stream(getBeanInfo(Emp.class, Object.class).getPropertyDescriptors())
+              // filter out properties with setters only
+              .filter(propertyDescriptor -> nonNull(propertyDescriptor.getReadMethod()))
+              .collect(
+                  toMap(
+                      // bean property name
+                      PropertyDescriptor::getName, pd -> pd.getReadMethod().getName()));
       out.println(beanMethods);
     } catch (IntrospectionException e) {
       e.printStackTrace();

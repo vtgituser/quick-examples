@@ -7,6 +7,9 @@ public class Array {
     System.out.println(false == isSquare(new int[0][2]));
     System.out.println(false == isSquare(new int[2][0]));
     System.out.println(false == isSquare(new int[][] {{1, 2}, {1}, {}}));
+
+    System.out.println(isSquare(new int[4][4]));
+    System.out.println(isSquare(new int[3][4]));
   }
 
   public static boolean isSquare(int[][] a) {

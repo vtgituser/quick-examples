@@ -5,7 +5,7 @@ public class DateCompare {
     String fromDate = "2019-01-01";
     String toDate = "2019-12-31";
     String[] dates =
-        new String[] {"2019-02-02", "1999-01-01", "2017-02-02", "2018-01-01", "2019-12-31"};
+        new String[] {"2019-02-02", "1999-01-01", "2020-02-02", "2018-01-01", "2019-12-31"};
 
     String from = "A";
     String to = "R";
